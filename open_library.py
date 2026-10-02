@@ -255,6 +255,7 @@ def data_retrieving_func():
 #-------------------------------------------------------Data framing-----------------------------------------------------
 
 pd.set_option('display.max_colwidth', 50)
+pd.set_option('future.no_silent_downcasting', True)
 
 # 1st DataFrame: the books in open library, cleaned from duplicates as much as possible
 def author_works(all_data):
@@ -400,7 +401,7 @@ def shorten(lifetime_books, column, limit):
     return df
 
 def tidy(df):
-    return df.astype(object).fillna('').infer_objects(copy=False)
+    return df.astype(object).fillna('')
 
 
 def build_report(tables, charts, path="report.html"):
