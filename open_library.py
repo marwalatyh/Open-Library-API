@@ -400,7 +400,7 @@ def shorten(lifetime_books, column, limit):
     return df
 
 def tidy(df):
-    return df.astype(object).fillna('')
+    return df.astype(object).fillna('').infer_objects(copy=False)
 
 
 def build_report(tables, charts, path="report.html"):
